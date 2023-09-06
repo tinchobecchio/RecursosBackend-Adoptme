@@ -6,11 +6,13 @@ import usersRouter from './routes/users.router.js';
 import petsRouter from './routes/pets.router.js';
 import adoptionsRouter from './routes/adoption.router.js';
 import sessionsRouter from './routes/sessions.router.js';
+import dotenv from 'dotenv'
+dotenv.config()
 
 const app = express();
 const PORT = process.env.PORT||8080;
 // const connection = mongoose.connect(`URL DE MONGO`)
-const connection = mongoose.connect(`mongodb+srv://CoderUser:123@codercluster.w5adegs.mongodb.net/?retryWrites=true&w=majority`)
+const connection = mongoose.connect(process.env.MONGO_URL)
 
 app.use(express.json());
 app.use(cookieParser());
